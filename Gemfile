@@ -7,6 +7,12 @@ gem 'rails', '3.0.9'
 
 gem 'sqlite3'
 
+#:test do
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'webrat'
+  gem 'cucumber-rails'
+#end
 # Use unicorn as the web server
 # gem 'unicorn'
 
