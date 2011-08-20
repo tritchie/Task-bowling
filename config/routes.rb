@@ -1,4 +1,5 @@
 Bowling::Application.routes.draw do
+  resources :game
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

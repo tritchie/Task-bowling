@@ -1,18 +1,37 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.9'
+gem 'rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
 
-#:test do
+# Asset template engines
+#gem 'sass-rails'
+gem 'coffee-script'
+gem 'uglifier'
+
+gem 'jquery-rails'
+
+group :test, :development do
+  gem 'cucumber-rails'
+  gem 'database_cleaner'
+end
+
+group :test do
+  # Pretty printed test output
+  gem 'turn', :require => false
+end
+
+group :test do
+  gem 'capybara'
+#  gem 'spork'
+  gem 'launchy'    # So you can do Then show me the page
   gem 'rspec'
   gem 'rspec-rails'
   gem 'webrat'
-  gem 'cucumber-rails'
-#end
+end
 # Use unicorn as the web server
 # gem 'unicorn'
 
