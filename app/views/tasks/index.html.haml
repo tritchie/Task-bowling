@@ -3,12 +3,15 @@
 
 -#this is the scorecard table
 %table
-  %tr
-    %td{:class => "frame"}
-      %table
-        %tr.box1
-        %tr.box2
-
+  %tr.scorecard
+    -9.times do
+      %td.frame
+        %table
+          %tr
+            %td.firstball ball1
+            %td.lastball ball2
+          %tr
+            %td.total total
 
 %table
   %tr
