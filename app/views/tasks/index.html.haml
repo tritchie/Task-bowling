@@ -2,9 +2,9 @@
   Listing tasks
 
 -#this is the scorecard table
-%table
-  %tr.scorecard
-    -9.times do
+%table.scorecard
+  %tr
+    -(1..9).each do |frame|
       %td.frame
         %table
           %tr
