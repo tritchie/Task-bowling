@@ -1,9 +1,10 @@
 table {
   border-collapse:collapse;
 }
-table, th, td {
-}
-.scorecard, .frame, .lastball {
+.scorecard, .frame, .box2 {
   border-collapse:collapse;
   border: 1px solid black;
+}
+.box1, .box2 {
+  width:50px
 }

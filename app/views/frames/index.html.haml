@@ -1,0 +1,21 @@
+<h1>Listing frames</h1>
+
+%table
+  %tr
+    -@frames.each do |frame|
+      %td.frame
+        %table
+          %tr
+            %td.box1
+              = frame.ball1
+            %td.box2
+              = frame.ball2
+          %tr
+            %td
+            %td.total
+              = link_to 'Edit', edit_frame_path(frame)
+              = link_to 'Destroy', frame, :confirm => 'Are you sure?', :method => :delete
+
+<br />
+
+= link_to 'New Frame', new_frame_path
