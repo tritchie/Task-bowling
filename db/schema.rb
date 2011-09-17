@@ -10,7 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110823223424) do
+ActiveRecord::Schema.define(:version => 20110916010503) do
+
+  create_table "frames", :force => true do |t|
+    t.integer  "ball1"
+    t.integer  "ball2"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tasks", :force => true do |t|
     t.string   "name"

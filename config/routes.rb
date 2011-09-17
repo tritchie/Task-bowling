@@ -1,4 +1,6 @@
 Bowling::Application.routes.draw do
+  resources :frames
+
   resources :game
 
   resources :tasks
