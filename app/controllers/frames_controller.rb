@@ -57,9 +57,10 @@ class FramesController < ApplicationController
   # PUT /frames/1.xml
   def update
     @frame = Frame.find(params[:id])
-
+    rewrite_totals
     respond_to do |format|
       if @frame.update_attributes(params[:frame])
+        
         format.html { redirect_to(@frame, :notice => 'Frame was successfully updated.') }
         format.xml  { head :ok }
       else
@@ -80,4 +81,42 @@ class FramesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  def frameafter (frame)
+    Frame.find(frame.id+1)
+  end
+  def sparebonus (frame)
+    nextframe = frameafter(frame)
+    if nextframe.ball2 = 10
+      return 10 
+    else 
+      return nextframe.ball1.to_i
+    end
+  end
+  def strikebonus (frame)
+    nextframe = frameafter(frame)
+    if nextframe.ball2 = 10
+      return 10 + sparebonus(nextframe)
+    else
+      return nextframe.ball1.to_i + nextframe.ball2.to_i
+    end
+  end
+  def rewrite_totals
+    runningtotal = 0
+    (1..10).each do |frameid|
+      frame = Frame.find(frameid)
+      ball1 = frame.ball1.to_i
+      ball2 = frame.ball2.to_i
+      score = ball1 + ball2
+      total = runningtotal + score
+      if ball2 == 10
+        score += strikebonus(frame)
+      else if score == 10
+        score += sparebonus(frame)
+      end
+      frame.total = runningtotal + score
+      frame.save!
+    end
+  end
+
+end
 end
