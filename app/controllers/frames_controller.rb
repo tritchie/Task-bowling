@@ -110,7 +110,7 @@ class FramesController < ApplicationController
       total = runningtotal + score
       if ball2 == 10
         score += strikebonus(frame)
-      else if score == 10
+      elsif score == 10
         score += sparebonus(frame)
       end
       frame.total = runningtotal + score
@@ -118,5 +118,4 @@ class FramesController < ApplicationController
     end
   end
 
-end
 end
