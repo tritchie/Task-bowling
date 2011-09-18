@@ -1,9 +1,4 @@
 class Frame < ActiveRecord::Base
-  def new
-  end
-  def update
-  end
-
   def rewrite_totals
     runningtotal = 0
     (1..10).each do |frameid|
