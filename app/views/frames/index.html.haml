@@ -1,8 +1,9 @@
 <h1>Listing frames</h1>
 
-%table
+%table{:width => '80%'}
   %tr.scorecard
-    -@frames.each do |frame|
+    -(0..9).each do |index|
+      -frame = @frames[index]
       %td.frame
         %table
           %tr
@@ -16,7 +17,6 @@
               = frame.total
               = link_to 'Edit', edit_frame_path(frame)
               = link_to 'Destroy', frame, :confirm => 'Are you sure?', :method => :delete
-
 <br />
 
 = link_to 'New Frame', new_frame_path
