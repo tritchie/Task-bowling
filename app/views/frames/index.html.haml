@@ -1,7 +1,7 @@
 <h1>Listing frames</h1>
 
-%table{:width => '80%'}
-  %tr.scorecard
+%table.scorecard
+  %tr
     -(0..9).each do |index|
       -frame = @frames[index]
       %td.frame
@@ -20,3 +20,5 @@
 <br />
 
 = link_to 'New Frame', new_frame_path
+
+=render :partial => 'shared/task', :collection => @tasks

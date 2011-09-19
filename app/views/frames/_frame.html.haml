@@ -1,0 +1,14 @@
+%td.frame
+  %table
+    %tr
+      %td.box1
+        = frame.ball1
+      %td.box2
+        = frame.ball2
+    %tr
+      %td
+      %td.total
+        = frame.total
+        = link_to 'Edit', edit_frame_path(frame)
+        = link_to 'Destroy', frame, :confirm => 'Are you sure?', :method => :delete
+

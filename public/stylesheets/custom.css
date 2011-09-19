@@ -2,11 +2,11 @@ table {
   border-collapse:collapse;
 }
 .scorecard {
-  width: 100%
+  width: 80%
 }
 .scorecard, .frame, .box2 {
   border-collapse:collapse;
-  border: 1px solid black;
+  border: 2px solid black;
 }
 .box1, .box2 {
 }

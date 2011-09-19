@@ -19,17 +19,6 @@
     <th></th>
     <th></th>
     <th></th>
-
--@tasks.each do |task|
-  %tr
-    %td
-      = task.name
-    %td
-      = link_to 'Show', task
-    %td
-      = link_to 'Edit', edit_task_path(task)
-    %td
-      = link_to 'Destroy', task, :confirm => 'Are you sure?', :method => :delete
-    <br />
+=render :partial => 'shared/task', :collection => @tasks
 
 = link_to 'New Task', new_task_path

@@ -3,6 +3,7 @@ class FramesController < ApplicationController
   # GET /frames.xml
   def index
     @frames = Frame.all
+    @tasks = Task.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -81,6 +82,9 @@ class FramesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+
+
   def frameafter (frame)
     Frame.find(frame.id+1)
   end
