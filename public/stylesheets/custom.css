@@ -4,9 +4,14 @@ table {
 .scorecard {
   width: 80%
 }
+
 .scorecard, .frame, .box2 {
   border-collapse:collapse;
   border: 2px solid black;
 }
-.box1, .box2 {
+.box1, .box2, .total {
+  text-align:right;
+}
+.total {
+  colspan:2;
 }

@@ -7,10 +7,9 @@
         %td.box2
           = frame.ball2
       %tr
-        %td 
-        %td.total
+        %td.total{:colspan => 2}
           = frame.total
-          %br
+      %tr
+        %td.extras
           = link_to 'Edit', edit_frame_path(frame)
           = link_to 'Destroy', frame, :confirm => 'Are you sure?', :method => :delete
-
