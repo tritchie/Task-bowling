@@ -1,11 +1,11 @@
 Bowling::Application.routes.draw do
   resources :frames
 
-  resources :game
-
   resources :tasks
 
-  match '/' => 'tasks#index'
+  match '/' => 'pages#home'
+
+  #match '/' => 'tasks#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

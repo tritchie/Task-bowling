@@ -3,7 +3,6 @@ class FramesController < ApplicationController
   # GET /frames.xml
   def index
     @frames = Frame.all
-    @tasks = Task.all
 
     respond_to do |format|
       format.html # index.html.erb

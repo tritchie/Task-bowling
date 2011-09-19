@@ -1,7 +1,8 @@
-<h1>Listing frames</h1>
-
+%h1 Welcome to life bowling!
 %table.scorecard
   %tr
     =render :partial => 'shared/frame', :collection => @frames
 <br />
 = link_to 'New Frame', new_frame_path
+=render :partial => 'shared/task', :collection => @tasks
+
