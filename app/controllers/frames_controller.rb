@@ -85,9 +85,9 @@ class FramesController < ApplicationController
   def clear_all
     @frames = Frame.all
     @frames.each do |frame|
-      frame.ball1 = nil if frame.id = 10
-      frame.ball2 = nil if frame.id = 10
-      frame.total = nil if frame.id = 10
+      frame.ball1 = nil
+      frame.ball2 = nil
+      frame.total = nil
       render('pages/home', :error => 'Sorry, there was a problem.') unless frame.save!
     end
     rewrite_totals
@@ -115,19 +115,18 @@ class FramesController < ApplicationController
   end
   def rewrite_totals
     runningtotal = 0
-    (1..10).each do |frameid|
-      frame = Frame.find(frameid)
+    @frames = Frame.all
+    @frames.each do |frame|
       ball1 = frame.ball1.to_i
       ball2 = frame.ball2.to_i
       score = ball1 + ball2
-      total = runningtotal + score
       if ball2 == 10
         score += strikebonus(frame)
       elsif score == 10
         score += sparebonus(frame)
       end
       runningtotal += score
-      frame.total = runningtotal
+      frame.total = runningtotal if score > 0
       frame.save!
     end
   end

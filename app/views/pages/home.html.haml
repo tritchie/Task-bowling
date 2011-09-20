@@ -3,5 +3,5 @@
   %tr
     =render :partial => 'shared/frame', :collection => @frames
 <br />
-= link_to 'New Game', 'newgame'
+= link_to 'New Game', 'newgame', :confirm => 'This will ruin your current game.  You sure?'
 =render :partial => 'shared/task', :collection => @tasks

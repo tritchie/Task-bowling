@@ -4,6 +4,12 @@ table {
 .scorecard {
   width: 80%
 }
+.frame {
+  width: 10%
+}
+.box2 {
+  width:10%;
+}
 
 .scorecard, .frame, .box2 {
   border-collapse:collapse;
@@ -11,7 +17,6 @@ table {
 }
 .box1, .box2, .total {
   text-align:right;
-}
-.total {
-  colspan:2;
+  font-size:20px;
+  font-weight:bold;
 }
