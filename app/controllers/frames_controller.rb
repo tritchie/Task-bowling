@@ -99,7 +99,7 @@ class FramesController < ApplicationController
   end
   def sparebonus (frame)
     nextframe = frameafter(frame)
-    if nextframe.ball2 = 10
+    if nextframe.ball2 == 10
       return 10 
     else 
       return nextframe.ball1.to_i
@@ -107,7 +107,7 @@ class FramesController < ApplicationController
   end
   def strikebonus (frame)
     nextframe = frameafter(frame)
-    if nextframe.ball2 = 10
+    if nextframe.ball2 == 10
       return 10 + sparebonus(nextframe)
     else
       return nextframe.ball1.to_i + nextframe.ball2.to_i
