@@ -126,7 +126,7 @@ class FramesController < ApplicationController
         score += sparebonus(frame)
       end
       runningtotal += score
-      frame.total = runningtotal if score > 0
+      frame.total = runningtotal unless score.nil?
       frame.save!
     end
   end
