@@ -1,5 +1,6 @@
 Bowling::Application.routes.draw do
   resources :frames
+  match 'newgame' => 'frames#clear_all'
 
   resources :tasks
 

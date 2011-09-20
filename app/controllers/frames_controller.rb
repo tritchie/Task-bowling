@@ -82,7 +82,17 @@ class FramesController < ApplicationController
     end
   end
 
-
+  def clear_all
+    @frames = Frame.all
+    @frames.each do |frame|
+      frame.ball1 = nil if frame.id = 10
+      frame.ball2 = nil if frame.id = 10
+      frame.total = nil if frame.id = 10
+      render('pages/home', :error => 'Sorry, there was a problem.') unless frame.save!
+    end
+    rewrite_totals
+    redirect_to('/', :notice => 'Frames were successfully updated.')
+  end
 
   def frameafter (frame)
     Frame.find(frame.id+1)
