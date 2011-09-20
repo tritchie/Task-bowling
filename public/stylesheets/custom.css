@@ -11,7 +11,7 @@ table {
   width:10%;
 }
 
-.scorecard, .frame, .box2 {
+.scorecard, .frame, .box2, .day {
   border-collapse:collapse;
   border: 2px solid black;
 }

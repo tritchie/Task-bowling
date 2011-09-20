@@ -1,6 +1,17 @@
 %h1 Welcome to life bowling!
 %table.scorecard
   %tr
+    %td.day{:colspan => '2', :align => 'center'}
+      MON
+    %td.day{:colspan => '2', :align => 'center'}
+      TUE
+    %td.day{:colspan => '2', :align => 'center'}
+      WED
+    %td.day{:colspan => '2', :align => 'center'}
+      THU
+    %td.day{:colspan => '2', :align => 'center'}
+      FRI
+  %tr
     -(1..10).each do |frameid|
       -@frame = Frame.find(frameid)
       =render :partial => 'shared/frame'
