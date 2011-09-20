@@ -1,17 +1,17 @@
--if frame.id < 11
+-if @frame.id < 11
   %td.frame
     %table
       %tr
         %td.id
-          =frame.id
+          = @frame.id
         %td.box1
-          = frame.ball1
+          = @frame.ball1
         %td.box2
-          = frame.ball2
+          = @frame.ball2
       %tr
         %td.total{:colspan => 2}
-          = frame.total
+          = @frame.total
       %tr
         %td.extras{:colspan => 2}
-          = link_to 'Edit', edit_frame_path(frame)
+          = link_to 'Edit', edit_frame_path(@frame)
           

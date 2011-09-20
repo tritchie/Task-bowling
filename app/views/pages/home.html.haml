@@ -1,7 +1,9 @@
 %h1 Welcome to life bowling!
 %table.scorecard
   %tr
-    =render :partial => 'shared/frame', :collection => @frames
+    -(1..10).each do |frameid|
+      -@frame = Frame.find(frameid)
+      =render :partial => 'shared/frame'
 = link_to 'NEW GAME', 'newgame', :confirm => 'This will ruin your current game.  You sure?'
 <br />
 <br />
