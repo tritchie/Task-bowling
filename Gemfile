@@ -4,10 +4,9 @@ gem 'rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
 gem 'sqlite3'
+#gem 'pg'
 gem 'heroku'
-
 # Asset template engines
 #gem 'sass-rails'
 gem 'haml'
