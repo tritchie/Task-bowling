@@ -2,6 +2,7 @@
 %table.scorecard
   %tr
     =render :partial => 'shared/frame', :collection => @frames
+= link_to 'NEW GAME', 'newgame', :confirm => 'This will ruin your current game.  You sure?'
 <br />
-= link_to 'New Game', 'newgame', :confirm => 'This will ruin your current game.  You sure?'
+<br />
 =render :partial => 'shared/task', :collection => @tasks
