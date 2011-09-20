@@ -115,7 +115,7 @@ class FramesController < ApplicationController
   end
   def rewrite_totals
     runningtotal = 0
-    (1..10.each) do |frameid|
+    (1..10.each).do |frameid|
       frame = Frame.find(frameid)
       ball1 = frame.ball1.to_i
       ball2 = frame.ball2.to_i
