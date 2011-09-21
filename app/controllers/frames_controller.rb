@@ -94,8 +94,22 @@ class FramesController < ApplicationController
     redirect_to('/', :notice => 'Frames were successfully updated.')
   end
 
-  def frameafter (frame)
-    Frame.find(frame.id+1)
+  def rewrite_totals
+    runningtotal = 0
+    (1..10).each do |frameid|
+      frame = Frame.find(frameid)
+      ball1 = frame.ball1.to_i
+      ball2 = frame.ball2.to_i
+      score = ball1 + ball2
+      if ball2 == 10
+        score += strikebonus(frame)
+      elsif score == 10
+        score += sparebonus(frame)
+      end
+      runningtotal += score
+      frame.total = runningtotal unless frame.ball1.nil? && frame.ball2.nil?
+      frame.save!
+    end
   end
   def sparebonus (frame)
     nextframe = frameafter(frame)
@@ -113,22 +127,8 @@ class FramesController < ApplicationController
       return nextframe.ball1.to_i + nextframe.ball2.to_i
     end
   end
-  def rewrite_totals
-    runningtotal = 0
-    (1..10).each do |frameid|
-      frame = Frame.find(frameid)
-      ball1 = frame.ball1.to_i
-      ball2 = frame.ball2.to_i
-      score = ball1 + ball2
-      if ball2 == 10
-        score += strikebonus(frame)
-      elsif score == 10
-        score += sparebonus(frame)
-      end
-      runningtotal += score
-      frame.total = runningtotal unless score.nil?
-      frame.save!
-    end
+  def frameafter (frame)
+    Frame.find(frame.id+1)
   end
 
 end
