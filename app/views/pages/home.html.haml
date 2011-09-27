@@ -1,22 +1,2 @@
-%h1 Welcome to life bowling!
-%table.scorecard
-  %tr
-    %td.day{:colspan => '2', :align => 'center'}
-      MON
-    %td.day{:colspan => '2', :align => 'center'}
-      TUE
-    %td.day{:colspan => '2', :align => 'center'}
-      WED
-    %td.day{:colspan => '2', :align => 'center'}
-      THU
-    %td.day{:colspan => '2', :align => 'center'}
-      FRI
-  %tr
-    -(1..10).each do |frameid|
-      -@frame = Frame.find(frameid)
-      =render :partial => 'shared/frame'
-= link_to 'NEW GAME', 'newgame', :confirm => 'This will ruin your current game.  You sure?'
-<br />
-<br />
-%h1 Next Tasks:
-=render :partial => 'shared/task', :collection => @tasks
+-@game = Game.first
+=render 'shared/game'

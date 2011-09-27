@@ -12,14 +12,17 @@
     %td.day{:colspan => '2', :align => 'center'}
       FRI
   %tr
-    -(1..10).each do |frameid|
-      -@frame = Frame.find(frameid)
+    -@frameiterator = 1
+    -@game.frames.each do |frame|
+      -@frame = frame
       =render :partial => 'shared/frame'
-= link_to 'NEW GAME', 'newgame', :confirm => 'This will ruin your current game.  You sure?'
+      -@frameiterator = @frameiterator + 1
+= link_to 'CLEAR GAME', 'cleargame', :confirm => 'This will ruin your current game.  You sure?'
 %br
 %br
 %h1 Next Tasks:
 =render :partial => 'shared/task', :collection => @tasks
+= link_to 'New Task', new_task_path
 <p id="notice">
 = notice
 

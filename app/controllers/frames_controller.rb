@@ -85,9 +85,8 @@ class FramesController < ApplicationController
   def clear_all
     @frames = Frame.all
     @frames.each do |frame|
-      frame.ball1 = nil
-      frame.ball2 = nil
-      frame.total = nil
+      frame.ball1 = 0
+      frame.ball2 = 0
       render('pages/home', :error => 'Sorry, there was a problem.') unless frame.save!
     end
     rewrite_totals
