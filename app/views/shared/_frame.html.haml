@@ -1,5 +1,7 @@
 -if @frame.id < 11
-  %td.frame
+  -frame = {:class => 'frame'}
+  -frame[:bgcolor] = 'yellow' if @game.current_frame == @frame.id
+  %td{frame}
     %table
       %tr
         %td.box1
@@ -12,4 +14,3 @@
       %tr
         %td.extras{:colspan => 2}
           = link_to 'Edit', edit_frame_path(@frame)
-

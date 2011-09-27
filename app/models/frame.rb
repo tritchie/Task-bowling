@@ -1,5 +1,6 @@
 class Frame < ActiveRecord::Base
 
+  belongs_to :game
   validates :ball1, :numericality => {:only_integer => true}
   validates :ball2, :numericality => {:only_integer => true}
 

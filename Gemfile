@@ -18,7 +18,7 @@ gem 'haml'
 group :test, :development do
 #  gem 'cucumber-rails'
 #  gem 'database_cleaner'
-#  gem 'irbtools'
+  gem 'irbtools'
 end
 
 group :test do

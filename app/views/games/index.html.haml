@@ -1,0 +1,26 @@
+<h1>Listing games</h1>
+
+<table>
+<tr>
+<th>Current frame</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+
+-@games.each do |game|
+  <tr>
+  <td>
+  = game.current_frame
+  <td>
+  = link_to 'Show', game
+  <td>
+  = link_to 'Edit', edit_game_path(game)
+  <td>
+  = link_to 'Destroy', game, :confirm => 'Are you sure?', :method => :delete
+  </tr>
+</table>
+
+<br />
+
+= link_to 'New Game', new_game_path
