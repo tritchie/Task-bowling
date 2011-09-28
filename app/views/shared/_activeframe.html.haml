@@ -3,7 +3,10 @@
   %table
     = form_for(@frame) do |f|
       %tr
-        %td.box1
+        %td.ball1
           = f.text_field :ball1, :size => 1, :onchange => "this.form.submit();"
-        %td.box2
+        %td.ball2
           = f.text_field :ball2, :size => 1, :onchange => "this.form.submit();"
+      %tr
+        %td ball1
+        %td ball2
