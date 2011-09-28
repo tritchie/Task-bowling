@@ -22,8 +22,8 @@
 %br
 %br
 %h1 Next Tasks:
--#render :partial => 'shared/task', :collection => @game.tasks
--#render :partial => 'shared/taskform'
+=render :partial => 'shared/task', :collection => @game.tasks
+=render :partial => 'taskform'
 = link_to 'New Task', new_task_path
 <p id="notice">
 = notice
