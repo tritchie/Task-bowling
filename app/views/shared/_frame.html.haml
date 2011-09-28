@@ -1,15 +1,27 @@
--frame = {:class => 'frame'}
--frame[:bgcolor] = 'yellow' if @game.current_frame == @frameiterator
-%td{frame}
-  %table
-    %tr
-      %td.box1
-        = boxes[0]
-      %td.box2
-        = boxes[1]
-    %tr
-      %td.total{:colspan => 2}
-        = @frame.total
-    %tr
-      %td.extras{:colspan => 2}
-        = link_to 'Edit', edit_frame_path(@frame)
+-frame = {:class => 'frame', :onclick => remote_function(:url => {:controller => 'games', :action => 'update', :id => @game.id})}
+-frame[:bgcolor] = 'yellow' if active?
+= form_for(@frame) do |f|
+  %td{frame}
+    %table
+      -if active?
+        %tr
+          %td.box1
+            = f.text_field :ball1, :size => 1
+          %td.box2
+            = f.text_field :ball2, :size => 1
+            -#, :onchange => remote_function(:url => {:controller => 'frames', :action => 'update', :id => @frame.id})
+        %tr
+          %td{:colspan => 2}
+            =f.submit
+      -else
+        %tr
+          %td.box1
+            = boxes[0]
+          %td.box2
+            = boxes[1]
+      %tr
+        %td.total{:colspan => 2}
+          = @frame.total
+      %tr
+        %td.extras{:colspan => 2}
+          = link_to 'Edit', edit_frame_path(@frame) unless active?

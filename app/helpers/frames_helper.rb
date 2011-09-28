@@ -12,6 +12,10 @@ module FramesHelper
     return [box1, box2]
   end
 
+  def active?
+    @game.current_frame == @frameiterator
+  end
+
   def finished?
     if frame.id == 10
       return true if @frame.ball1 == 10 or @frame.ball2 != nil
