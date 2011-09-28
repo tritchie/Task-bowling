@@ -12,11 +12,12 @@
     %td.day{:colspan => '2', :align => 'center'}
       FRI
   %tr
-    -@frameiterator = 1
     -@game.frames.each do |frame|
       -@frame = frame
-      =render :partial => 'shared/frame'
-      -@frameiterator = @frameiterator + 1
+      -if active?
+        =render :partial => 'shared/activeframe'
+      -else
+        =render :partial => 'shared/inactiveframe'
 = link_to 'CLEAR GAME', 'cleargame', :confirm => 'This will ruin your current game.  You sure?'
 %br
 %br

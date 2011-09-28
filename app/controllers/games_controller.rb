@@ -57,6 +57,8 @@ class GamesController < ApplicationController
   # PUT /games/1.xml
   def update
     @game = Game.find(params[:id])
+    @game.current_frame = params[:current_frame]
+    @game.save!
 
     respond_to do |format|
       if @game.update_attributes(params[:game])

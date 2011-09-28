@@ -13,7 +13,7 @@ module FramesHelper
   end
 
   def active?
-    @game.current_frame == @frameiterator
+    @game.current_frame == @frame.id
   end
 
   def finished?

@@ -61,7 +61,7 @@ class FramesController < ApplicationController
     respond_to do |format|
       if @frame.update_attributes(params[:frame])
         
-        format.html { redirect_to(@frame, :notice => 'Frame was successfully updated.') }
+        format.html { redirect_to('/', :notice => 'Frame was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

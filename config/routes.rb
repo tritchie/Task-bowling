@@ -7,6 +7,7 @@ Bowling::Application.routes.draw do
   resources :tasks
 
   match '/' => 'pages#home'
+  match 'games/:id/update/:current_frame' => 'games#update'
 
   #match '/' => 'tasks#index'
   # The priority is based upon order of creation:
