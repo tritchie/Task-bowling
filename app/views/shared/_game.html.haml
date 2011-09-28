@@ -1,3 +1,5 @@
+<p id="notice">
+= notice
 %h1 Welcome to life bowling!
 %table.scorecard
   %tr
@@ -24,15 +26,3 @@
 %h1 Next Tasks:
 =render :partial => 'shared/task', :collection => @game.tasks
 =render :partial => 'taskform'
-= link_to 'New Task', new_task_path
-<p id="notice">
-= notice
-
-<p>
-<b>Current frame:</b>
-= @game.current_frame
-</p>
-
-
-= link_to 'Edit', edit_game_path(@game)
-= link_to 'Back', games_path
