@@ -1,7 +1,6 @@
-= form_for(@game.tasks.new) do |f|
+= form_for(@task) do |f|
   .field
     = f.label :name 
-    %br
     = f.text_field :name
   .actions
     = f.submit

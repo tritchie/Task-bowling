@@ -14,6 +14,8 @@ class GamesController < ApplicationController
   # GET /games/1.xml
   def show
     @game = Game.find(params[:id])
+    @task = Task.new
+    @task.game_id = @game.id
 
     respond_to do |format|
       format.html # show.html.erb
