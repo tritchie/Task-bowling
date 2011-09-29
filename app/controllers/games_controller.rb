@@ -25,12 +25,7 @@ class GamesController < ApplicationController
   # GET /games/new
   # GET /games/new.xml
   def new
-    @game = Game.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @game }
-    end
+    create
   end
 
   # GET /games/1/edit
@@ -41,15 +36,18 @@ class GamesController < ApplicationController
   # POST /games
   # POST /games.xml
   def create
-    @game = Game.new(params[:game])
-    10.times do
-      @game.frames.new(:ball1 => 0, :ball2 => 0)
-    end
+    @game = Game.new
 
     respond_to do |format|
       if @game.save
-        format.html { redirect_to(@game, :notice => 'Game was successfully created.') }
-        format.xml  { render :xml => @game, :status => :created, :location => @game }
+        @game.current_frame = @game.frames.create(:ball1 => 0, :ball2 => 0).id
+        9.times do
+          @game.frames.create(:ball1 => 0, :ball2 => 0)
+        end
+        if @game.save
+          format.html { redirect_to(@game, :notice => 'Game was successfully created.') }
+          format.xml  { render :xml => @game, :status => :created, :location => @game }
+        end
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @game.errors, :status => :unprocessable_entity }

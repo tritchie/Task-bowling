@@ -41,10 +41,11 @@ class TasksController < ApplicationController
   # POST /tasks.xml
   def create
     @task = Task.new(params[:task])
+    @game = @task.game
 
     respond_to do |format|
-      if @task.save
-        format.html { redirect_to('/', :notice => 'Task was successfully created.') }
+      if @task.save!
+        format.html { redirect_to(@game, :notice => 'Task was successfully created.') }
         format.xml  { render :xml => @task, :status => :created, :location => @task }
       else
         format.html { render :action => "new" }
@@ -57,10 +58,11 @@ class TasksController < ApplicationController
   # PUT /tasks/1.xml
   def update
     @task = Task.find(params[:id])
+    @game = @task.game
 
     respond_to do |format|
       if @task.update_attributes(params[:task])
-        format.html { redirect_to('/', :notice => 'Task was successfully updated.') }
+        format.html { redirect_to(@game, :notice => 'Task was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -73,10 +75,11 @@ class TasksController < ApplicationController
   # DELETE /tasks/1.xml
   def destroy
     @task = Task.find(params[:id])
+    @game = task.game
     @task.destroy
 
     respond_to do |format|
-      format.html { redirect_to('/') }
+      format.html { redirect_to(@game) }
       format.xml  { head :ok }
     end
   end
