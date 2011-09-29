@@ -46852,3 +46852,104 @@ Rendered games/_taskform.html.haml (9.2ms)
 Rendered shared/_game.html.haml (226.6ms)
 Rendered games/show.html.haml within layouts/application (233.0ms)
 Completed 200 OK in 276ms (Views: 186.0ms | ActiveRecord: 54.8ms)
+  [1m[36mGame Load (0.9ms)[0m  [1mSELECT "games".* FROM "games" LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (24.9ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+Migrating to CreateTasks (20110823223424)
+Migrating to CreateFrames (20110916010503)
+Migrating to AddTotalToFrame (20110917185314)
+Migrating to CreateGames (20110923172247)
+Migrating to AddGameIdToFrame (20110927162518)
+Migrating to AddGameIdToTask (20110928182512)
+  [1m[36mSQL (0.3ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("frames")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("games")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("tasks")[0m
+  [1m[36mGame Load (24.0ms)[0m  [1mSELECT "games".* FROM "games" LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.7ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+Migrating to CreateTasks (20110823223424)
+Migrating to CreateFrames (20110916010503)
+Migrating to AddTotalToFrame (20110917185314)
+Migrating to CreateGames (20110923172247)
+Migrating to AddGameIdToFrame (20110927162518)
+Migrating to AddGameIdToTask (20110928182512)
+  [1m[36mSQL (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("frames")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("games")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("tasks")[0m
+  [1m[36mGame Load (0.9ms)[0m  [1mSELECT "games".* FROM "games" LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+Migrating to CreateTasks (20110823223424)
+Migrating to CreateFrames (20110916010503)
+Migrating to AddTotalToFrame (20110917185314)
+Migrating to CreateGames (20110923172247)
+Migrating to AddGameIdToFrame (20110927162518)
+Migrating to AddGameIdToTask (20110928182512)
+  [1m[36mSQL (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("frames")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("games")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("tasks")[0m
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-09-29 11:51:07 -0600
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mGame Load (0.7ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mFrame Load (29.1ms)[0m  [1mSELECT "frames".* FROM "frames" WHERE ("frames".game_id = 1)[0m
+Rendered shared/_inactiveframe.html.haml (19.6ms)
+Rendered shared/_inactiveframe.html.haml (22.4ms)
+Rendered shared/_activeframe.html.haml (44.6ms)
+Rendered shared/_inactiveframe.html.haml (8.2ms)
+Rendered shared/_inactiveframe.html.haml (6.8ms)
+Rendered shared/_inactiveframe.html.haml (5.8ms)
+Rendered shared/_inactiveframe.html.haml (5.8ms)
+Rendered shared/_inactiveframe.html.haml (8.0ms)
+Rendered shared/_inactiveframe.html.haml (6.1ms)
+Rendered shared/_inactiveframe.html.haml (5.8ms)
+  [1m[35mTask Load (19.5ms)[0m  SELECT "tasks".* FROM "tasks" WHERE ("tasks".game_id = 1)
+Rendered shared/_task.html.haml (18.5ms)
+Rendered games/_taskform.html.haml (30.4ms)
+Rendered shared/_game.html.haml (511.3ms)
+Rendered games/show.html.haml within layouts/application (580.2ms)
+Completed 200 OK in 843ms (Views: 621.4ms | ActiveRecord: 49.3ms)
