@@ -42,6 +42,9 @@ class GamesController < ApplicationController
   # POST /games.xml
   def create
     @game = Game.new(params[:game])
+    10.times do
+      @game.frames.new(:ball1 => 0, :ball2 => 0)
+    end
 
     respond_to do |format|
       if @game.save

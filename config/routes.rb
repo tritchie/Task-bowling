@@ -6,7 +6,7 @@ Bowling::Application.routes.draw do
 
   resources :tasks
 
-  #match '/' => "games#show", :id => Game.first.id
+  match '/' => "games#show", :id => Game.first.id
   match 'games/:id/update/:current_frame' => 'games#update'
 
   #match '/' => 'tasks#index'

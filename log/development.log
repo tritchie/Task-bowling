@@ -46953,3 +46953,26 @@ Rendered games/_taskform.html.haml (30.4ms)
 Rendered shared/_game.html.haml (511.3ms)
 Rendered games/show.html.haml within layouts/application (580.2ms)
 Completed 200 OK in 843ms (Views: 621.4ms | ActiveRecord: 49.3ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-09-29 11:58:46 -0600
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.3ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1[0m
+  [1m[35mFrame Load (3.5ms)[0m  SELECT "frames".* FROM "frames" WHERE ("frames".game_id = 1)
+Rendered shared/_inactiveframe.html.haml (6.4ms)
+Rendered shared/_inactiveframe.html.haml (6.3ms)
+Rendered shared/_activeframe.html.haml (9.9ms)
+Rendered shared/_inactiveframe.html.haml (8.4ms)
+Rendered shared/_inactiveframe.html.haml (6.6ms)
+Rendered shared/_inactiveframe.html.haml (6.6ms)
+Rendered shared/_inactiveframe.html.haml (7.0ms)
+Rendered shared/_inactiveframe.html.haml (7.7ms)
+Rendered shared/_inactiveframe.html.haml (6.2ms)
+Rendered shared/_inactiveframe.html.haml (7.4ms)
+  [1m[36mTask Load (0.4ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE ("tasks".game_id = 1)[0m
+Rendered shared/_task.html.haml (18.4ms)
+Rendered games/_taskform.html.haml (8.7ms)
+Rendered shared/_game.html.haml (242.8ms)
+Rendered games/show.html.haml within layouts/application (249.4ms)
+Completed 200 OK in 289ms (Views: 251.8ms | ActiveRecord: 4.2ms)
