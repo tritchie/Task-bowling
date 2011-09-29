@@ -57,10 +57,9 @@ class FramesController < ApplicationController
   # PUT /frames/1.xml
   def update
     @frame = Frame.find(params[:id])
-    rewrite_totals
     respond_to do |format|
       if @frame.update_attributes(params[:frame])
-        
+        rewrite_totals
         format.html { redirect_to('/', :notice => 'Frame was successfully updated.') }
         format.xml  { head :ok }
       else

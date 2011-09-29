@@ -5,6 +5,8 @@
       %tr
         %td.ball1
           = f.text_field :ball1, :size => 1, :onchange => "this.form.submit();"
+          :javascript
+            document.getElementById("frame_ball1").focus();
         %td.ball2
           = f.text_field :ball2, :size => 1, :onchange => "this.form.submit();"
       %tr

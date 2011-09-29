@@ -4,6 +4,7 @@ module FramesHelper
     if @frame.ball1 == 10
       box1 = nil; box2 = 'X'
     elsif @frame.ball1 + @frame.ball2 == 10
+      box1 = '-' if @frame.ball1 == 0
       box2 = '/'
     else
       box1 = '-' if @frame.ball1 == 0
