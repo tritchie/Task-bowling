@@ -1,7 +1,7 @@
 = form_for(@task) do |f|
   .field
-    = f.label :name 
+    = f.label :name, "New Task:"
     = f.text_field :name
-    = f.text_field :game_id, :size => 1, :value => @game.id
+    = f.hidden_field :game_id, :size => 1, :value => @game.id
   .actions
     = f.submit

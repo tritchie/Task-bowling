@@ -1,10 +1,12 @@
 Bowling::Application.routes.draw do
+
   resources :games
   match 'cleargame' => 'frames#clear_all'
-
   resources :frames
 
   resources :tasks
+  #map.resources :game, :has_many => [:frames]
+  #map.resources :game, :has_many => [:tasks]
 
   match '/' => "games#show", :id => Game.first.id
   match 'games/:id/update/:current_frame' => 'games#update'

@@ -46978,3 +46978,6 @@ Rendered games/show.html.haml within layouts/application (249.4ms)
 Completed 200 OK in 289ms (Views: 251.8ms | ActiveRecord: 4.2ms)
 DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /Users/thomasritchie/code/bowling/config/environment.rb:5)
   [1m[36mGame Load (1.0ms)[0m  [1mSELECT "games".* FROM "games" LIMIT 1[0m
+  [1m[36mGame Load (0.9ms)[0m  [1mSELECT "games".* FROM "games" LIMIT 1[0m
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /Users/thomasritchie/code/bowling/config/environment.rb:5)
+  [1m[36mGame Load (1.0ms)[0m  [1mSELECT "games".* FROM "games" LIMIT 1[0m

@@ -1,4 +1,10 @@
 module FramesHelper
+  def box1
+    boxes[0]
+  end
+  def box2
+    boxes[1]
+  end
   def boxes
     box1, box2 = @frame.ball1, @frame.ball2
     if @frame.ball1 == 10
@@ -11,6 +17,9 @@ module FramesHelper
       box2 = '-' if @frame.ball2 == 0
     end
     return [box1, box2]
+  end
+  def total
+    @frame.total unless @frame.id > @game.current_frame
   end
 
   def active?
