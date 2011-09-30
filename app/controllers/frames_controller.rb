@@ -93,9 +93,10 @@ class FramesController < ApplicationController
   end
 
   def rewrite_totals
+    @game = @frame.game
     runningtotal = 0
-    (1..10).each do |frameid|
-      frame = Frame.find(frameid)
+    @game.frames.each do |frame|
+      break unless frame.id < @game.current_frame
       ball1 = frame.ball1.to_i
       ball2 = frame.ball2.to_i
       score = ball1 + ball2

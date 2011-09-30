@@ -5,11 +5,9 @@ class Frame < ActiveRecord::Base
   validates :ball2, :numericality => {:only_integer => true, :allow_nil => true}
 
   validates_each :ball2 do |model, attr, value|
-    model.ball1 = 0 if model.ball1 == nil
-    model.ball2 = 0 if model.ball2 == nil
-    if (model.ball1 + model.ball2) > 10
-      model.errors.add("There's only 10 pins! #{model.ball1}, #{model.id}, #{model.ball2}") 
-    end
+    #if (model.ball1 + model.ball2) > 10
+      #model.errors.add("There's only 10 pins! #{model.ball1}, #{model.id}, #{model.ball2}") 
+    #end
   end
 end
 

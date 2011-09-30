@@ -6,6 +6,7 @@ module FramesHelper
     boxes[1]
   end
   def boxes
+    return [nil, nil] if @frame.id > @game.current_frame
     box1, box2 = @frame.ball1, @frame.ball2
     if @frame.ball1 == 10
       box1 = nil; box2 = 'X'
