@@ -39,10 +39,10 @@ class GamesController < ApplicationController
 
     respond_to do |format|
       if @game.save
-        @game.current_frame = @game.frames.create(:ball1 => 0, :ball2 => 0).id
-        9.times do
-          @game.frames.create(:ball1 => 0, :ball2 => 0)
+        (1..10).each do |position|
+          @game.frames.create(:ball1 => 0, :ball2 => 0, :position => position)
         end
+        @game.active_frame = @game.current_frame = @game.frames.first.id
         if @game.save
           format.html { redirect_to(@game, :notice => 'Game was successfully created.') }
           format.xml  { render :xml => @game, :status => :created, :location => @game }
