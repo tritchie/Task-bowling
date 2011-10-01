@@ -30,12 +30,10 @@ module FramesHelper
   def current?
     @game.current_frame == @frame.id
   end
-  def finished?
-    if frame.id == 10
-      return true if @frame.ball1 == 10 or @frame.ball2 != nil
-    else
-      return false if finished(Frame.find(@frame.id+1))
-    end
+  def editable?
+    @game.current_frame >= @frame.id
   end
-
+  def color
+    current? ? color = {:bgcolor => 'yellow'} : color = {}
+  end
 end

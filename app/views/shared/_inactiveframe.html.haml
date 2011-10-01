@@ -1,14 +1,13 @@
 -#(:url => {:controller => 'games', :action => 'update', :id => @game.id})}
-%td.frame
-  -#{:onclick => (:url => {:controller => 'games', :action => 'update', :game => {:current_frame => @frame.id}})}
-  -current? ? link = {:href => "/games/#{@game.id}/update/#{@frame.id}"} : {}
-  %a
-    %table
-      %tr
-        %td.box1
-          = box1
-        %td.box2
-          = box2
-      %tr
-        %td.total{:colspan => 2}
-          = total
+-#{:onclick => (:url => {:controller => 'games', :action => 'update', :game => {:current_frame => @frame.id}})}
+-editable? ? link = {:href => "/games/#{@game.id}/update/#{@frame.id}"} : link = {}
+%a{link}
+  %table
+    %tr
+      %td.box1
+        = box1
+      %td.box2
+        = box2
+    %tr
+      %td.total{:colspan => 2}
+        = total

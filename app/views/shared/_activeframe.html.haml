@@ -1,18 +1,16 @@
--frame = {:class => 'frame', :bgcolor => 'yellow'}
-%td{frame}
-  %table
-    = form_for(@frame) do |f|
-      %tr
-        %td.ball1
-          = f.text_field :ball1, :size => 1, :onchange => "this.form.submit();"
-        %td.ball2
-          = f.text_field :ball2, :size => 1, :onchange => "this.form.submit();"
-          -if @frame.ball1 == nil
-            :javascript
-              document.getElementById("frame_ball1").focus();
-          -elsif @frame.ball2 == nil
-            :javascript
-              document.getElementById("frame_ball2").focus();
-      %tr
-        %td 1st
-        %td 2nd
+%table
+  = form_for(@frame) do |f|
+    %tr
+      %td.ball1
+        = f.text_field :ball1, :size => 1, :onchange => "this.form.submit();"
+      %td.ball2
+        = f.text_field :ball2, :size => 1, :onchange => "this.form.submit();"
+        -if @frame.ball1 == nil
+          :javascript
+            document.getElementById("frame_ball1").focus();
+        -elsif @frame.ball2 == nil
+          :javascript
+            document.getElementById("frame_ball2").focus();
+    %tr
+      %td 1st
+      %td 2nd

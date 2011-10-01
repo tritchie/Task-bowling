@@ -1,5 +1,5 @@
-<p id="notice">
-= notice
+%p#notice
+  = notice
 %h1 Welcome to life bowling!
 %table.scorecard
   %tr
@@ -16,10 +16,11 @@
   %tr
     -@game.frames.each do |frame|
       -@frame = frame
-      -if active?
-        =render :partial => 'shared/activeframe'
-      -else
-        =render :partial => 'shared/inactiveframe'
+      %td.frame{color}
+        -if active?
+          =render :partial => 'shared/activeframe'
+        -else
+          =render :partial => 'shared/inactiveframe'
 = link_to 'MY GAMES', 'games#show'
 %br
 %br
