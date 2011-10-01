@@ -59,6 +59,11 @@ class FramesController < ApplicationController
     @frame = Frame.find(params[:id])
     respond_to do |format|
       if @frame.update_attributes(params[:frame])
+        @game = @frame.game
+        if completed?(@frame) && @game.current_frame == @frame.id
+          @game.update_attributes(:current_frame => @frame.id + 1,
+                                  :active_frame  => @frame.id + 1)
+        end
         rewrite_totals
         format.html { redirect_to('/', :notice => 'Frame was successfully updated.') }
         format.xml  { head :ok }
@@ -128,5 +133,8 @@ class FramesController < ApplicationController
   end
   def frameafter (frame)
     Frame.find(frame.id+1)
+  end
+  def completed? (frame)
+    frame.ball1 != nil && frame.ball2 != nil
   end
 end

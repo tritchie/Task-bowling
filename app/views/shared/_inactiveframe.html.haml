@@ -1,7 +1,8 @@
 -#(:url => {:controller => 'games', :action => 'update', :id => @game.id})}
 %td.frame
   -#{:onclick => (:url => {:controller => 'games', :action => 'update', :game => {:current_frame => @frame.id}})}
-  %a{:href => "/games/#{@game.id}/update/#{@frame.id}"}
+  -current? ? link = {:href => "/games/#{@game.id}/update/#{@frame.id}"} : {}
+  %a
     %table
       %tr
         %td.box1
