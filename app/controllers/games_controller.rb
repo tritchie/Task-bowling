@@ -44,7 +44,7 @@ class GamesController < ApplicationController
         end
         @game.active_frame = @game.current_frame = @game.frames.first.id
         require "date"
-        @game.week = Date.commercial(DateTime.year, DateTime.now.cweek, d=1)
+        @game.week = Date.commercial(DateTime.now.year, DateTime.now.cweek, d=1)
         if @game.save
           format.html { redirect_to(@game, :notice => 'Game was successfully created.') }
           format.xml  { render :xml => @game, :status => :created, :location => @game }
