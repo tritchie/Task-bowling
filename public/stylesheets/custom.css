@@ -7,7 +7,7 @@ table {
 .frame, .currentframe, .bonusframe {
   width: 10%
 }
-.currentframe{
+.currentframe, .bonusbox{
   background-color: yellow
 }
 

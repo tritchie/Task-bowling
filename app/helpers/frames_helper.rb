@@ -42,6 +42,18 @@ module FramesHelper
       {:class => 'frame'}
     end
   end
+  def bonusboxes
+    box1 = @game.frames.where(:position => 11)[0].ball1
+    box2 = @game.frames.where(:position => 11)[0].ball2
+    [box1, box2]
+  end
+  def bonusattrs
+    if Frame.find(@game.current_frame).position == 11
+      {:class => 'bonusbox'}
+    else
+      {:class => 'box2'}
+    end
+  end
   def bonusframe?
     @frame.position == 11
   end

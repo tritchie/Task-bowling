@@ -1,0 +1,7 @@
+%td{frameattrs}
+  -if active?
+    =render :partial => 'frames/activeframe'
+  -else
+    -editable? ? link = {:href => "/games/#{@game.id}/update/#{@frame.id}"} : link = {}
+    %a{link}
+      =render :partial => 'frames/inactiveframe'

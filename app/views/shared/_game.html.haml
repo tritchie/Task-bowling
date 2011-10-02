@@ -15,13 +15,9 @@
     %td.day{:colspan => '3', :align => 'center'}
       FRI
   %tr
-    -@game.frames.each do |frame|
-      -@frame = frame
-      %td{frameattrs}
-        -if active?
-          =render :partial => 'shared/activeframe'
-        -else
-          =render :partial => 'shared/inactiveframe'
+    -(1..10).each do |position|
+      -@frame = getframeatposition(position)
+      =render :partial => 'shared/frame'
 = link_to 'MY GAMES', :action => 'index'
 %br
 %br
