@@ -11,7 +11,7 @@ if @game = Game.create!
   end
   @game.active_frame = @game.current_frame = @game.frames.first.id
   require "date"
-  @game.week = Date.commercial(DateTime.year, DateTime.now.cweek, d=1)
+  @game.week = Date.commercial(DateTime.now.year, DateTime.now.cweek, d=1)
   @game.save!
 end
 
