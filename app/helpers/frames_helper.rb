@@ -48,8 +48,8 @@ module FramesHelper
     [box1, box2]
   end
   def bonusattrs
-    if Frame.find(@game.currentframe).position == 11
-      {:class => 'bonusbox'}
+    if position == 11
+      {:class => 'currentframe'}
     else
       {:class => 'box2'}
     end
@@ -57,9 +57,11 @@ module FramesHelper
   def bonusframe?
     @frame.position == 11
   end
+  def position
+    Frame.find(@game.current_frame).position
+  end
   def bonus
-    @frame = frameat 11
-    if active?
+    if position == 11
       render :partial => 'frames/activeframe'
     else
       render :partial => 'frames/inactiveframe'
