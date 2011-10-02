@@ -5,9 +5,8 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
-@game = Game.new
-if @game.save!
-  (1..10).each do |position|
+if @game = Game.create!
+  (1..11).each do |position|
     @game.frames.create(:ball1 => 0, :ball2 => 0, :position => position)
   end
   @game.active_frame = @game.current_frame = @game.frames.first.id
