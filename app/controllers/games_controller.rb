@@ -35,16 +35,13 @@ class GamesController < ApplicationController
   # POST /games
   # POST /games.xml
   def create
-    @game = Game.new
-
     respond_to do |format|
-      if @game.save
+      require "date"
+      if @game = Game.create(:week => Date.commercial(DateTime.now.year, DateTime.now.cweek, d=1))
         (1..10).each do |position|
           @game.frames.create(:ball1 => 0, :ball2 => 0, :position => position)
         end
         @game.active_frame = @game.current_frame = @game.frames.first.id
-        require "date"
-        @game.week = Date.commercial(DateTime.now.year, DateTime.now.cweek, d=1)
         if @game.save
           format.html { redirect_to(@game, :notice => 'Game was successfully created.') }
           format.xml  { render :xml => @game, :status => :created, :location => @game }
