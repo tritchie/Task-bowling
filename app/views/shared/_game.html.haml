@@ -12,12 +12,12 @@
       WED
     %td.day{:colspan => '2', :align => 'center'}
       THU
-    %td.day{:colspan => '2', :align => 'center'}
+    %td.day{:colspan => '3', :align => 'center'}
       FRI
   %tr
     -@game.frames.each do |frame|
       -@frame = frame
-      %td.frame{color}
+      %td{frameattrs}
         -if active?
           =render :partial => 'shared/activeframe'
         -else

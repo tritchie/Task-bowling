@@ -60,12 +60,17 @@ class FramesController < ApplicationController
     respond_to do |format|
       if @frame.update_attributes(params[:frame])
         @game = @frame.game
-        if completed?(@frame) && @game.current_frame == @frame.id
-          @game.update_attributes(:current_frame => @frame.id + 1,
-                                  :active_frame  => @frame.id + 1)
+        if completed?(@frame) 
+          if @frame.position == 11
+            #do nothing for now
+          elsif @game.current_frame == @frame.id 
+            @game.update_attributes(:current_frame => frameafter(@frame).id,
+                                    :active_frame  => frameafter(@frame).id)
+          end
         end
+      end
         rewrite_totals
-        format.html { redirect_to('/', :notice => 'Frame was successfully updated.') }
+        format.html { redirect_to(@game, :notice => 'Frame was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -132,9 +137,10 @@ class FramesController < ApplicationController
     end
   end
   def frameafter (frame)
-    Frame.find(frame.id+1)
+    @game.frames.where(:position => frame.position + 1)[0]
   end
   def completed? (frame)
-    frame.ball1 != nil && frame.ball2 != nil
+    frame.ball1 != nil && frame.ball2 != nil or
+    frame.ball1 == 10
   end
 end

@@ -4,9 +4,13 @@ table {
 .scorecard {
   width: 80%
 }
-.frame {
+.frame, .currentframe, .bonusframe {
   width: 10%
 }
+.currentframe{
+  background-color: yellow
+}
+
 .box2 {
   width:10%;
 }

@@ -33,7 +33,16 @@ module FramesHelper
   def editable?
     @game.current_frame >= @frame.id
   end
-  def color
-    current? ? color = {:bgcolor => 'yellow'} : color = {}
+  def frameattrs
+    if current?
+      {:class => 'currentframe'}
+    elsif bonusframe?
+      {:class => 'bonusframe'}
+    else
+      {:class => 'frame'}
+    end
+  end
+  def bonusframe?
+    @frame.position == 11
   end
 end
