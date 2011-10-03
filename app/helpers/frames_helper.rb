@@ -1,42 +1,42 @@
 module FramesHelper
-  def box1
-    boxes[0]
+  def box1(frame)
+    boxes(frame)[0]
   end
-  def box2
-    boxes[1]
+  def box2(frame)
+    boxes(frame)[1]
   end
-  def boxes
-    return [nil, nil] if @frame.id >= @game.current_frame
-    box1, box2 = @frame.ball1, @frame.ball2
-    if @frame.ball1 == 10
+  def boxes(frame)
+    return [nil, nil] if frame.id >= @game.current_frame
+    box1, box2 = frame.ball1, frame.ball2
+    if frame.ball1 == 10
       box1 = nil; box2 = 'X'
-    elsif @frame.ball1 + @frame.ball2 == 10
-      box1 = '-' if @frame.ball1 == 0
+    elsif frame.ball1 + frame.ball2 == 10
+      box1 = '-' if frame.ball1 == 0
       box2 = '/'
     else
-      box1 = '-' if @frame.ball1 == 0
-      box2 = '-' if @frame.ball2 == 0
+      box1 = '-' if frame.ball1 == 0
+      box2 = '-' if frame.ball2 == 0
     end
     return [box1, box2]
   end
-  def total
-    @frame.total unless @frame.id >= @game.current_frame
+  def total(frame)
+    frame.total unless frame.id >= @game.current_frame
   end
 
-  def active?
-    @game.active_frame == @frame.id
+  def active?(frame)
+    @game.active_frame == frame.id
   end
 
-  def current?
-    @game.current_frame == @frame.id
+  def current?(frame)
+    @game.current_frame == frame.id
   end
-  def editable?
-    @game.current_frame >= @frame.id
+  def editable?(frame)
+    @game.current_frame >= frame.id
   end
-  def frameattrs
-    if current?
+  def frameattrs(frame)
+    if current?(frame)
       {:class => 'currentframe'}
-    elsif bonusframe?
+    elsif bonusframe?(frame)
       {:class => 'bonusframe'}
     else
       {:class => 'frame'}
@@ -48,23 +48,25 @@ module FramesHelper
     [box1, box2]
   end
   def bonusattrs
-    if position == 11
+    if game_position == 11
       {:class => 'currentframe'}
     else
       {:class => 'box2'}
     end
   end
-  def bonusframe?
-    @frame.position == 11
+  def bonusframe?(frame)
+    frame.position == 11
   end
-  def position
+  def game_position
     Frame.find(@game.current_frame).position
   end
-  def bonus
-    if position == 11
-      render :partial => 'frames/activeframe'
+  def bonus(frame)
+    if game_position == 11
+      render :partial => 'frames/activeframe',
+        :locals => {:frame => frame}
     else
-      render :partial => 'frames/inactiveframe'
+      render :partial => 'frames/inactiveframe',
+        :locals => {:frame => frame}
     end
   end
   def frameat(position)

@@ -16,8 +16,8 @@
       FRI
   %tr
     -(1..10).each do |position|
-      -@frame = getframeatposition(position)
-      =render :partial => 'shared/frame'
+      =render :partial => 'shared/frame',
+        :locals => {:frame => getframeatposition(position)}
 = link_to 'MY GAMES', :action => 'index'
 %br
 %br
