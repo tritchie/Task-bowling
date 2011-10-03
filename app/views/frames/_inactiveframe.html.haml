@@ -2,7 +2,7 @@
   -editable?(frame) ? link = {:href => "/games/#{@game.id}/update/#{frame.id}"} : link = {}
   %a{link}
     %table
-      %td.box1
+      %td{box1attrs(frame)}
         = box1(frame)
-      %td.box2
+      %td{box2attrs(frame)}
         = box2(frame)

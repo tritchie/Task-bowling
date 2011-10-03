@@ -68,7 +68,6 @@ class FramesController < ApplicationController
                                     :active_frame  => frameafter(@frame).id)
           end
         end
-      end
         rewrite_totals
         format.html { redirect_to(@game, :notice => 'Frame was successfully updated.') }
         format.xml  { head :ok }

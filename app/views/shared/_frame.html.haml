@@ -4,8 +4,7 @@
       %tr
         =render :partial => 'frames/editform',
         :locals => {:frame => frame}
-
-        =bonus(frame) if frame.position == 10
+        =bonus if frame.position == 10
       %tr
         %td 1st
         %td 2nd
@@ -14,8 +13,7 @@
       %tr
         =render :partial => 'frames/inactiveframe',
         :locals => {:frame => frame}
-
-        =bonus(frame) if frame.position == 10
+        =bonus if frame.position == 10
       %tr
         %td.total{:colspan => 2}
           = total(frame)

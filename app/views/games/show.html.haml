@@ -1,1 +1,26 @@
-=render 'shared/game'
+%p#notice
+  = notice
+%h1 Life Bowling
+="Week of #{@game.week}"
+%table.scorecard
+  %tr
+    %td.day{:colspan => '2', :align => 'center'}
+      MON
+    %td.day{:colspan => '2', :align => 'center'}
+      TUE
+    %td.day{:colspan => '2', :align => 'center'}
+      WED
+    %td.day{:colspan => '2', :align => 'center'}
+      THU
+    %td.day{:colspan => '3', :align => 'center'}
+      FRI
+  %tr
+    -(1..10).each do |position|
+      =render :partial => 'shared/frame',
+        :locals => {:frame => getframeatposition(position)}
+= link_to 'MY GAMES', :action => 'index'
+%br
+%br
+%h1 Next Tasks:
+=render :partial => 'shared/task', :collection => @game.tasks
+=render :partial => 'taskform'

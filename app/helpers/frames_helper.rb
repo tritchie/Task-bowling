@@ -6,7 +6,7 @@ module FramesHelper
     boxes(frame)[1]
   end
   def boxes(frame)
-    return [nil, nil] if frame.id >= @game.current_frame
+    return [nil, nil] if frame.position >= @game.current_frame
     box1, box2 = frame.ball1, frame.ball2
     if frame.ball1 == 10
       box1 = nil; box2 = 'X'
@@ -26,18 +26,38 @@ module FramesHelper
   def active?(frame)
     @game.active_frame == frame.id
   end
-
   def current?(frame)
-    @game.current_frame == frame.id
+    frame.position == game_position
+  end
+  def finished?(frame)
+    frame.position < game_position
   end
   def editable?(frame)
-    @game.current_frame >= frame.id
+    finished?(frame) or current?(frame)
+  end
+  def bonus?(frame)
+    frame.position == 11
+  end
+  def box1attrs(frame)
+    if bonus?(frame)
+      bonusattrs
+    else
+      {:class => 'box1'}
+    end
+  end
+  def box2attrs(frame)
+    if bonus?(frame)
+      bonusattrs
+    else
+      {:class => 'box2'}
+    end
   end
   def frameattrs(frame)
     if current?(frame)
       {:class => 'currentframe'}
     elsif bonusframe?(frame)
-      {:class => 'bonusframe'}
+      bonusattrs
+      #{:class => 'bonusframe'}
     else
       {:class => 'frame'}
     end
@@ -60,13 +80,13 @@ module FramesHelper
   def game_position
     Frame.find(@game.current_frame).position
   end
-  def bonus(frame)
-    if game_position == 11
-      render :partial => 'frames/activeframe',
-        :locals => {:frame => frame}
+  def bonus
+    if active?(frameat(11))
+      render :partial => 'frames/editform',
+        :locals => {:frame => frameat(11)}
     else
       render :partial => 'frames/inactiveframe',
-        :locals => {:frame => frame}
+        :locals => {:frame => frameat(11)}
     end
   end
   def frameat(position)
