@@ -38,8 +38,8 @@ class GamesController < ApplicationController
     respond_to do |format|
       require "date"
       if @game = Game.create(:week => Date.commercial(DateTime.now.year, DateTime.now.cweek, d=1))
-        (1..10).each do |position|
-          @game.frames.create(:ball1 => 0, :ball2 => 0, :position => position)
+        (1..11).each do |position|
+          @game.frames.create(:position => position)
         end
         @game.active_frame = @game.current_frame = @game.frames.first.id
         if @game.save

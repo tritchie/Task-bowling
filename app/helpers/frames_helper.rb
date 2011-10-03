@@ -6,7 +6,7 @@ module FramesHelper
     boxes(frame)[1]
   end
   def boxes(frame)
-    return [nil, nil] if frame.position >= @game.current_frame
+    return [nil, nil] if frame.position >= game_position
     box1, box2 = frame.ball1, frame.ball2
     if frame.ball1 == 10
       box1 = nil; box2 = 'X'
@@ -27,7 +27,17 @@ module FramesHelper
     @game.active_frame == frame.id
   end
   def current?(frame)
-    frame.position == game_position
+    @game.current_frame == frame.id
+  end
+  def empty?(frame)
+    frame.ball1 == nel && frame.ball2 == nil
+  end
+  def incomplete?(frame)
+    completed?(frame) == false
+  end
+  def completed?(frame)
+    frame.ball1 != nil && frame.ball2 != nil or
+    frame.ball1 == 10
   end
   def finished?(frame)
     frame.position < game_position
