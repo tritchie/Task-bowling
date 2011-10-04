@@ -7,8 +7,11 @@ Bowling::Application.routes.draw do
   resources :tasks
   #map.resources :game, :has_many => [:frames]
   #map.resources :game, :has_many => [:tasks]
-
-  match '/' => "games#index"
+  if Game.last.nil?
+    match '/' => "game#index"
+  else
+    match '/' => "games#show", :id => Game.last.id
+  end
   match 'games/:id/update/:active_frame' => 'games#update'
 
   #match '/' => 'tasks#index'
