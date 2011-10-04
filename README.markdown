@@ -2,13 +2,14 @@
 
 The revolutionary life-bowling system, now online!
 
-## NEXT MILESTONE:
+## Next Milestone:
 * 10/8/2011: Pleasant-looking, bug-free, user-ready app
+
 ### Past Milestones:
 * 10/4/2011: user-friendly UI
 * 9/20/2011: functional app
 
-### Questions:
+## Questions:
 ####Technical
 * how do I embed a link to a controller request?  I made an
 ugly route and ugly game-controller action to allow inactive frames to
