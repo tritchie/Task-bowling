@@ -68,7 +68,7 @@ class FramesController < ApplicationController
                                     :active_frame  => frameafter(@frame).id)
           end
         end
-        rewrite_totals
+        rewrite_totals unless @frame.position == 11
         format.html { redirect_to(@game, :notice => 'Frame was successfully updated.') }
         format.xml  { head :ok }
       else
