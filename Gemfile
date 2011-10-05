@@ -16,23 +16,23 @@ gem 'haml'
 #gem 'jquery-rails'
 
 group :test, :development do
-#  gem 'cucumber-rails'
-#  gem 'database_cleaner'
+  gem 'cucumber-rails'
+  gem 'database_cleaner'
   gem 'irbtools'
 end
 
 group :test do
   # Pretty printed test output
-#  gem 'turn', :require => false
+  gem 'turn', :require => false
 end
 
 group :test do
 #  gem 'capybara'
-#  gem 'spork'
-#  gem 'launchy'    # So you can do Then show me the page
-#  gem 'rspec'
-#  gem 'rspec-rails'
-#  gem 'webrat'
+  gem 'spork'
+  gem 'launchy'    # So you can do Then show me the page
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'webrat'
 end
 # Use unicorn as the web server
 # gem 'unicorn'

@@ -5,7 +5,7 @@ The revolutionary life-bowling system, now online!
 ### Next Milestone:
 * 10/8/2011: Pleasant-looking, bug-free, user-ready app
 
-### Past Milestones:
+#### Past Milestones:
 * 10/4/2011: user-friendly UI
 * 9/20/2011: functional app
 
